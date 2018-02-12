@@ -1,5 +1,5 @@
 
-@extends('main')
+@extends('layouts.app')
 
 @section('title', '| Pages')
 
@@ -10,12 +10,12 @@
         {{-- Check if current user is logged-in or a guest --}}
         @if (Auth::guest())
 
-            <p class="mt-5">Cheatn?, please <a href="/login/">login</a> to continue.</p>
+            <p class="mt-5">SVP <a href="/login/">s'identifiez-vous</a>pour continuer.</p>
 
         @else
 
             <div class="blog-header">
-                <h1 class="blog-title">Pages <a class="btn btn-sm btn-primary" href="{{ route('pages.create') }}">Add New</a></h1>
+                <h1 class="blog-title">Pages <a class="btn btn-sm btn-primary" href="{{ route('pages.create') }}">Ajouté Nouveau</a></h1>
             </div>
 
             <div class="row">
@@ -24,8 +24,8 @@
                     <table class="table">
                         <tr>
                             <th>Title</th>
-                            <th>Author</th>
-                            <th>Content</th>
+                            <th>Auteur</th>
+                            <th>Contnenu</th>
                             <th>Date</th>
                             <th>&nbsp;</th>
                         </tr>
@@ -59,7 +59,7 @@
                                             <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
                                         </form>
 
-                                        <a class="btn btn-sm btn-info" href="{{ route('pages.edit', $page->id) }}">Edit</a>
+                                        <a class="btn btn-sm btn-info" href="{{ route('pages.edit', $page->id) }}">Modifier</a>
                                     </td>
                                 </tr>
                             @endforeach

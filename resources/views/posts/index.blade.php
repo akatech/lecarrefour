@@ -1,7 +1,7 @@
 
-@extends('main')
+@extends('layouts.app')
 
-@section('title', '| Posts')
+@section('title', '| Articles')
 
 @section('content')
 
@@ -10,7 +10,7 @@
         {{-- Check if current user is logged-in or a guest --}}
         @if (Auth::guest())
 
-            <p class="mt-5">Cheatn?, please <a href="/login/">login</a> to continue.</p>
+            <p class="mt-5">SVP <a href="/login/">s'identifier-vous</a> pour continuer.</p>
 
         @else
 
@@ -23,10 +23,10 @@
 
                     <table class="table">
                         <tr>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Content</th>
-                            <th>Category</th>
+                            <th>Titre</th>
+                            <th>Auteur</th>
+                            <th>Contenu</th>
+                            <th>Categorie</th>
                             <th>Date</th>
                             <th>&nbsp;</th>
                         </tr>

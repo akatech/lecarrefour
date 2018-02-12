@@ -1,7 +1,7 @@
 
-@extends('main')
+@extends('layouts.app')
 
-@section('title', '| Add New Post')
+@section('title', '| Modifier l\'article')
 
 @section('content')
 
@@ -10,11 +10,11 @@
         {{-- Check if current user is logged-in or a guest --}}
         @if (Auth::guest())
 
-            <p class="mt-5">Cheatn?, please <a href="/login/">login</a> to continue.</p>
+            <p class="mt-5">SVP <a href="/login/">s'identifiez</a> pour continuer.</p>
 
         @else
             <div class="blog-header">
-                <h1 class="blog-title">Edit Post <a class="btn btn-sm btn-primary" href="{{ route('posts.show', $post->id) }}">Preview Changes</a></h1>
+                <h1 class="blog-title">Modifier l'article <a class="btn btn-sm btn-primary" href="{{ route('posts.show', $post->id) }}">Preview Changes</a></h1>
             </div>
 
             <div class="row">
@@ -38,8 +38,8 @@
                         <input type="hidden" name="post_type" value="post" />
 
                         <div class="form-group{{ $errors->has('post_title') ? ' has-error' : '' }}">
-                            <label for="post_title">Title</label> <br/>
-                            <input type="text" name="post_title" id="post_title" value="{{ $post->post_title }}" />
+                            <label for="post_title">Titre</label> <br/>
+                            <input class="form-control" type="text" name="post_title" id="post_title" value="{{ $post->post_title }}" />
 
                             @if ($errors->has('post_title'))
                                 <span class="help-block">
@@ -50,7 +50,7 @@
 
                         <div class="form-group{{ $errors->has('post_slug') ? ' has-error' : '' }}">
                             <label for="post_slug">Slug</label> <br/>
-                            <input type="text" name="post_slug" id="post_slug" value="{{ $post->post_slug }}" />
+                            <input class="form-control" type="text" name="post_slug" id="post_slug" value="{{ $post->post_slug }}" />
 
                             @if ($errors->has('post_slug'))
                                 <span class="help-block">
@@ -60,8 +60,8 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('post_content') ? ' has-error' : '' }}">
-                            <label for="post_content">Content</label> <br/>
-                            <textarea name="post_content" id="post_content" cols="80" rows="6">{{ $post->post_content }}</textarea>
+                            <label for="post_content">Contenu</label> <br/>
+                            <textarea id="article-ckeditor" class="form-control" name="post_content" id="post_content" cols="80" rows="6">{{ $post->post_content }}</textarea>
 
                             @if ($errors->has('post_content'))
                                 <span class="help-block">
@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="title">Category</label> <br/>
+                            <label for="title">Categorie</label> <br/>
 
                             <?php $categories = Helper::get_categories(); ?>
                             <select name="category_ID" id="category_ID">
@@ -89,7 +89,7 @@
 
                         <div class="form-group">
                             <label for="post_thumbnail">Thumbnail</label> <br/>
-                            <input type="file" name="post_thumbnail" id="post_thumbnail" />
+                            <input class="thumbnail" type="file" name="post_thumbnail" id="post_thumbnail" />
                         </div>
 
                         <div class="form-group">

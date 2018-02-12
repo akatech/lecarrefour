@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', 'PagesController@getIndex')->name('home');
+Route::get('/', 'PagesController@getIndex');
 
 // Making sure our search term does only contains word and digit
 Route::get('search/{s?}', 'SearchesController@getIndex')->where('s', '[\w\d]+');

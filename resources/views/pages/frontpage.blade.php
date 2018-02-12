@@ -1,10 +1,10 @@
-@extends('main')
+@extends('layouts.app')
 
-@section('title', '| Blog Tutorial')
+@section('title', '| Accueil')
 
 @section('content')
     <div class="blog-header">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
+        <h1 class="blog-title">Nouveaux articles postés</h1>
         <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
     </div>
 
@@ -18,7 +18,7 @@
                         <h2 class="blog-post-title">
                             <a href="/article/{{ $post->post_slug }}">{{ $post->post_title }}</a>
                         </h2>
-                        <p class="blog-post-meta">{{ date('M j, Y', strtotime( $post->created_at )) }} by <a href="#">{{ $post->author_ID }}</a></p>
+                        <p class="blog-post-meta">{{ date('M j, Y', strtotime( $post->created_at )) }} par <a href="#">{{ Helper::get_userinfo( $post->author_ID )->name }}</a></p>
 
                         <div class="blog-content">
                             {!! nl2br( $post->post_content ) !!}
@@ -28,7 +28,7 @@
                 @endforeach
             @else
 
-                <p>No post added yet!</p>
+                <p>Aucun message ajouté pour l'instant!</p>
 
             @endif
 
@@ -37,11 +37,11 @@
                 <nav>
                     <ul class="pager">
                         @if( $posts->firstItem() > 1 )
-                            <li><a href="{{ $posts->previousPageUrl() }}">Previous</a></li>
+                            <li><a href="{{ $posts->previousPageUrl() }}">Précédednt</a></li>
                         @endif
 
                         @if( $posts->lastItem() < $posts->total() )
-                            <li><a href="{{ $posts->nextPageUrl() }}">Next</a></li>
+                            <li><a href="{{ $posts->nextPageUrl() }}">Suivant</a></li>
                         @endif
                     </ul>
                 </nav>

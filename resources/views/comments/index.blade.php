@@ -1,6 +1,6 @@
-@extends('main')
+@extends('layouts.app')
 
-@section('title', 'Comments')
+@section('title', '| Commentaires')
 
 @section('content')
 
@@ -9,25 +9,25 @@
         {{-- Check if current user is logged-in or a guest --}}
         @if (Auth::guest())
 
-            <p class="mt-5">Cheatn?, please <a href="/login/">login</a> to continue.</p>
+            <p class="mt-5">SVP <a href="/login/">s'identifiez-vous</a> pour continuer.</p>
 
         @else
 
             <div class="blog-header">
-                <h1 class="blog-title">Comments</h1>
+                <h1 class="blog-title">Commentaires</h1>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
 
-                    <a href="{{ route('comments.index') }}">All</a> | <a href="{{ route('comments.index') }}/?comment_status=1">Approved</a>
+                    <a href="{{ route('comments.index') }}">Tout</a> | <a href="{{ route('comments.index') }}/?comment_status=1">Approuvé</a>
 
                     <table class="table">
                         <tr>
-                            <th>Author</th>
-                            <th>Comment</th>
-                            <th>In Response To</th>
-                            <th>Submitted On</th>
+                            <th>Auteur</th>
+                            <th>Commentaire</th>
+                            <th>En réponse à</th>
+                            <th>Soumis le</th>
                             <th width="24%">&nbsp;</th>
                         </tr>
                         <tr>
@@ -82,7 +82,7 @@
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
 
-                                            <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
+                                            <input type="submit" value="Delete" class="btn btn-sm btn-danger" /><i class="far fa-trash-alt" ></i>
                                         </form>
 
                                         <a class="btn btn-sm btn-info" href="{{ route('comments.edit', $comment->id) }}">Edit</a>
@@ -92,7 +92,7 @@
                         @else
 
                             <tr>
-                                <td colspan="5">No comment has been added yet!</td>
+                                <td colspan="5">Aucun commentaire n'a encore été ajouté!</td>
                             </tr>
 
                             @endif

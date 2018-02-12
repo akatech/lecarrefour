@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.app')
 
 @section('title', '| Add New Post')
 
@@ -9,7 +9,7 @@
         {{-- Check if current user is logged-in or a guest --}}
         @if (Auth::guest())
 
-            <p class="mt-5">Cheatn?, please <a href="/login/">login</a> to continue.</p>
+            <p class="mt-5">SVP <a href="/login/">s'identidiez-vous</a> pour continuer.</p>
 
         @else
 
@@ -21,8 +21,8 @@
             <div class="row">
                 <div class="col-sm-12 blog-main">
 
-                    <div class="blog-thumbnail">
-                        <img src="/uploads/{{ $post->post_thumbnail }}" alt="{{ $post->post_title }}" />
+                    <div class="blog-thumbnail thumbnail ">
+                        <img style="width: 100%;" src="/uploads/{{ $post->post_thumbnail }}" alt="{{ $post->post_title }}" />
                     </div>
 
                     <div class="blog-content">

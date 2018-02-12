@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.app')
 
 @section('title', '| Edit Comment')
 
@@ -9,11 +9,11 @@
         {{-- Check if current user is logged-in or a guest --}}
         @if (Auth::guest())
 
-            <p class="mt-5">Cheatn?, please <a href="/login/">login</a> to continue.</p>
+            <p class="mt-5">SVP<a href="/login/">s'inscrire</a> pour continuer.</p>
 
         @else
             <div class="blog-header">
-                <h1 class="blog-title">Edit Comment</h1>
+                <h1 class="blog-title">Modifier le Commentaire</h1>
             </div>
 
             @php
@@ -40,8 +40,8 @@
                         <input type="hidden" name="post_id" value="{{ $comment->post_id }}" />
 
                         <div class="form-group{{ $errors->has('comment_author') ? ' has-error' : '' }}">
-                            <label for="comment_author">Name *</label> <br/>
-                            <input type="text" name="comment_author" value="{{ $comment->comment_author }}" />
+                            <label for="comment_author">Nom *</label> <br/>
+                            <input class="form-control" type="text" name="comment_author" value="{{ $comment->comment_author }}" />
 
                             @if ($errors->has('comment_author'))
                                 <span class="help-block">
@@ -51,8 +51,8 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('comment_author_email') ? ' has-error' : '' }}">
-                            <label for="comment_author_email">Email Address *</label> <br/>
-                            <input type="text" name="comment_author_email" value="{{ $comment->comment_author_email }}" />
+                            <label for="comment_author_email">Address Email *</label> <br/>
+                            <input class="form-control" id="article-ckeditor" type="text" name="comment_author_email" value="{{ $comment->comment_author_email }}" />
 
                             @if ($errors->has('comment_author_email'))
                                 <span class="help-block">

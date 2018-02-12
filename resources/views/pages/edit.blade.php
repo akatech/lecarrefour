@@ -1,6 +1,6 @@
-@extends('main')
+@extends('layouts.app')
 
-@section('title', '| Edit Page')
+@section('title', '| Modifier la page')
 
 @section('content')
 
@@ -9,11 +9,11 @@
         {{-- Check if current user is logged-in or a guest --}}
         @if (Auth::guest())
 
-            <p class="mt-5">Cheatn?, please <a href="/login/">login</a> to continue.</p>
+            <p class="mt-5">SVP <a href="/login/">s'identifier</a> pour continuer.</p>
 
         @else
             <div class="blog-header">
-                <h1 class="blog-title">Edit Page <a class="btn btn-sm btn-primary" href="{{ route('pages.show', $page->id) }}">Preview Changes</a></h1>
+                <h1 class="blog-title">Modifier la page <a class="btn btn-sm btn-primary" href="{{ route('pages.show', $page->id) }}">Preview Changes</a></h1>
             </div>
 
             <div class="row">
@@ -37,7 +37,7 @@
                         <input type="hidden" name="post_type" value="page" />
 
                         <div class="form-group{{ $errors->has('post_title') ? ' has-error' : '' }}">
-                            <label for="post_title">Title</label> <br/>
+                            <label for="post_title">Titre</label> <br/>
                             <input type="text" name="post_title" id="post_title" value="{{ $page->post_title }}" />
 
                             @if ($errors->has('post_title'))

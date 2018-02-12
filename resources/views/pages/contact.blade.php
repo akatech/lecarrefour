@@ -1,5 +1,5 @@
 
-@extends('main')
+@extends('layouts.app')
 
 @section('title', '| Welcome to my Blog')
 

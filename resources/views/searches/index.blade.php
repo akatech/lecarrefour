@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.app')
 
 @section('title')
     | Search on {{ $s }}
@@ -7,8 +7,8 @@
 @section('content')
 
     <div class="blog-header">
-        <h1 class="blog-title">Searching for "{{ $s }}"</h1>
-        <p>We've found {{ $posts->count() }} results for your search term in all blog entries</p>
+        <h1 class="blog-title">À la recherche de "{{ $s }}"</h1>
+        <p>Nous avons trouvé des résultats {{ $posts->count() }}  pour votre terme de recherche dans toutes les entrées de blog</p>
     </div>
 
     <div class="row">
@@ -21,7 +21,7 @@
                         <h2 class="blog-post-title">
                             <a href="/article/{{ $post->post_slug }}">{{ $post->post_title }}</a>
                         </h2>
-                        <p class="blog-post-meta">{{ date('M j, Y', strtotime( $post->created_at )) }} by <a href="#">{{ Helper::get_userinfo( $post->author_ID )->name }}</a></p>
+                        <p class="blog-post-meta">{{ date('M j, Y', strtotime( $post->created_at )) }} par <a href="#">{{ Helper::get_userinfo( $post->author_ID )->name }}</a></p>
 
                         <div class="blog-content">
                             {{--If post content is > 200 in characters display 200 only or else display the whole content--}}
@@ -32,7 +32,7 @@
                 @endforeach
             @else
 
-                <p>No post martch on your term <strong>{{ $s }}</strong></p>
+                <p>Aucun article trouvé <strong>{{ $s }}</strong></p>
 
             @endif
 
@@ -41,11 +41,11 @@
                 <nav>
                     <ul class="pager">
                         @if( $posts->firstItem() > 1 )
-                            <li><a href="{{ $posts->previousPageUrl() }}">Previous</a></li>
+                            <li><a href="{{ $posts->previousPageUrl() }}">Précédent</a></li>
                         @endif
 
                         @if( $posts->lastItem() < $posts->total() )
-                            <li><a href="{{ $posts->nextPageUrl() }}">Next</a></li>
+                            <li><a href="{{ $posts->nextPageUrl() }}">Suivant</a></li>
                         @endif
                     </ul>
                 </nav>

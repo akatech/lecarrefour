@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.app')
 
 @section('title', '| Categories')
 
@@ -9,12 +9,12 @@
         {{-- Check if current user is logged-in or a guest --}}
         @if (Auth::guest())
 
-            <p class="mt-5">Cheatn?, please <a href="/login/">login</a> to continue.</p>
+            <p class="mt-5">SVP <a href="/login/">s'identifiez vous</a> pour continuer.</p>
 
         @else
 
             <div class="blog-header">
-                <h1 class="blog-title">Categories <a class="btn btn-sm btn-primary" href="{{ route('categories.create') }}">Add New</a></h1>
+                <h1 class="blog-title">Categories <a class="btn btn-sm btn-primary" href="{{ route('categories.create') }}">Ajouter un nouveau</a></h1>
             </div>
 
             <div class="row">
@@ -22,7 +22,7 @@
 
                     <table class="table">
                         <tr>
-                            <th>Title</th>
+                            <th>Titre</th>
                             <th>Date</th>
                             <th>&nbsp;</th>
                         </tr>
@@ -39,7 +39,7 @@
                                             </a>
                                         </strong>
                                     </td>
-                                    <td>Published {{ date( 'j/m/Y', strtotime( $category->created_at ) ) }}</td>
+                                    <td>Publié {{ date( 'j/m/Y', strtotime( $category->created_at ) ) }}</td>
                                     <td>
                                         <form class="d-inline" action="{{ route('categories.destroy', $category->id) }}" method="POST">
                                             {{ csrf_field() }}
@@ -47,6 +47,7 @@
 
                                             <input type="submit" value="Delete" class="btn btn-sm btn-danger" />
                                         </form>
+                                        <br>
 
                                         <a class="btn btn-sm btn-info" href="{{ route('categories.edit', $category->id) }}">Edit</a>
                                     </td>

@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.app')
 
 @section('title')
     | {{ $page->post_title }}

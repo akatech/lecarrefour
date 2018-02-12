@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.app')
 
 @section('title', '| Blog Tutorial')
 
@@ -18,7 +18,7 @@
                         <h2 class="blog-post-title">
                             <a href="/article/{{ $post->post_slug }}">{{ $post->post_title }}</a>
                         </h2>
-                        <p class="blog-post-meta">{{ date('M j, Y', strtotime( $post->created_at )) }} by <a href="#">{{ Helper::get_userinfo( $post->author_ID )->name }}</a></p>
+                        <p class="blog-post-meta">{{ date('M j, Y', strtotime( $post->created_at )) }} par <a href="#">{{ Helper::get_userinfo( $post->author_ID )->name }}</a></p>
 
                         <div class="blog-content">
                             {!! nl2br( $post->post_content ) !!}
@@ -37,11 +37,11 @@
                 <nav>
                     <ul class="pager">
                         @if( $posts->firstItem() > 1 )
-                            <li><a href="{{ $posts->previousPageUrl() }}">Previous</a></li>
+                            <li><a href="{{ $posts->previousPageUrl() }}">Précédent</a></li>
                         @endif
 
                         @if( $posts->lastItem() < $posts->total() )
-                            <li><a href="{{ $posts->nextPageUrl() }}">Next</a></li>
+                            <li><a href="{{ $posts->nextPageUrl() }}">Suivant</a></li>
                         @endif
                     </ul>
                 </nav>

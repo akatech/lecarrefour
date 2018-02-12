@@ -23,3 +23,10 @@
         </ol>
     </div>
 </div><!-- /.blog-sidebar -->
+
+<div class="sidebar-module">
+    <h4>Search</h4>
+    <form action="/search/" method="GET">
+        <input type="text" name="s" value="{{ Request::query('s') }}" placeholder="Search this site..." />
+    </form>
+</div>

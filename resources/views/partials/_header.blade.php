@@ -8,6 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/"><img src=" {{ asset('images/logo.png') }}" style="width:30px;height:30px" alt="logo"></a>
+           {{-- <a class="navbar-brand" href="/"><img src=" {{ asset('images/logo.png') }}" style="width:30px;height:30px" alt="logo"></a>--}}
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">

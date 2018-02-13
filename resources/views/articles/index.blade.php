@@ -20,7 +20,7 @@
                         </h2>
                         <p class="blog-post-meta">{{ date('M j, Y', strtotime( $post->created_at )) }} par <a href="#">{{ Helper::get_userinfo( $post->author_ID )->name }}</a></p>
 
-                        <div class="blog-content">
+                        <div class="blog-content" style="text-align: justify;">
                             {!! nl2br( $post->post_content ) !!}
                         </div>
                     </div>

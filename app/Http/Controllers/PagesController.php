@@ -185,5 +185,86 @@ class PagesController extends Controller
 
         endif;
     }
+    // About
+    public function about(){
+        $title = 'About Us';
+        return view('pages.about')->with('title',$title);
+    }
+
+    // Services
+    /* public function services(){
+         $data = array(
+             'title' => 'Services',
+             'services' => ['Web design', 'Programming', 'SEO']
+         );
+       return view('pages.services')->with($data);
+   }
+*/
+    // Interview
+    public function interview(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.interview');
+    }
+
+    public function agriculture(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.agriculture');
+    }
+
+    public function pisciculture(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.pisciculture');
+    }
+
+    public function elevage(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.elevage');
+    }
+
+    public function innovation(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.innovation');
+    }
+
+    public function tech(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.tech');
+    }
+
+    public function struct(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.struct');
+    }
+
+    public function ong(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.ong');
+    }
+
+    public function pme(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.pme');
+    }
+
+    public function entreprise(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.entreprise');
+    }
+
+    public function discussion(){
+        // $title = 'About Us';
+        // return view('pages.about')->with('title',$title);
+        return view('pages.discussion');
+    }
 
 }

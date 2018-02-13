@@ -14,6 +14,22 @@
 
 Route::get('/', 'PagesController@getIndex');
 
+// Carrefour des entrepreneurs
+Route::get('/interview', 'PagesController@interview');
+//Route::get('/articles', 'PagesController@articles');
+Route::get('/agriculture', 'PagesController@agriculture');
+Route::get('/elevage', 'PagesController@elevage');
+Route::get('/pisciculture', 'PagesController@pisciculture');
+Route::get('/innovation', 'PagesController@innovation');
+Route::get('/tech', 'PagesController@tech');
+Route::get('/struct', 'PagesController@struct');
+Route::get('/ong', 'PagesController@ong');
+Route::get('/pme', 'PagesController@pme');
+Route::get('/entreprise', 'PagesController@entreprise');
+Route::get('/discussion', 'PagesController@discussion');
+
+Route::get('/servicies', 'PagesController@services');
+
 // Making sure our search term does only contains word and digit
 Route::get('search/{s?}', 'SearchesController@getIndex')->where('s', '[\w\d]+');
 
